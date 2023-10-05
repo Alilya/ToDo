@@ -4,6 +4,8 @@ import style from './Projects.module.css'
 
 let Projects = (props) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [text,setText] = useState();
+
   let openModal = () => {
     setModalIsOpen(true);
   };
@@ -13,10 +15,10 @@ let Projects = (props) => {
   };
 
   return (
-    <div>
+    <div >
       <button onClick={openModal}>Открыть модальное окно</button>
-      <Modal isOpen={modalIsOpen} onRequestClose={closeModal}>
-        <ModalContent closeModal={closeModal} />
+      <Modal isOpen={modalIsOpen} onRequestClose={closeModal} className={style.modalWindow}>
+        <ModalContent closeModal={closeModal} text={text} />
       </Modal>
     </div>
   );
@@ -27,7 +29,7 @@ export const ModalContent = (props) => {
     <div>
       <form action="" className={style.createProject}>
         Number
-        <input type="text" placeholder='Заголовок'/>
+        <input type="text" placeholder='Заголовок' value={props.text}/>
         <input type="text" placeholder='Описание'/>
         Дата создания<input type="date"/>
         <input type="text" placeholder='Время в работе'/>
