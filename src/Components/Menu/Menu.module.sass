@@ -1,0 +1,74 @@
+// .menu{
+//     padding: 1%;
+//     display: flex;
+//     justify-content: start;
+//     align-content: center;
+// }
+// .menu_nav {
+//     display: inline-block;
+//     position: relative;
+//     text-decoration: none;
+//     letter-spacing: .05em;
+//     text-shadow:
+//       1px 1px rgb(66, 173, 250),
+//       -1px 1px rgb(66, 173, 250),
+//       -1px -1px rgb(66, 173, 250),
+//       1px -1px rgb(66, 173, 250);
+//     color: white;
+//     transition: all 1s;
+//   }
+  
+//  .menu_nav:before {
+//     content: "";
+//     position: absolute;
+//     top: 10px;
+//     right: -15px;
+//     bottom: -15px;
+//     left: 0;
+//     z-index: -1;
+//     background: linear-gradient(
+//       -45deg,
+//       rgba(55, 107, 251, 0) 2px,
+//       rgb(78, 187, 255) 3px,
+//       rgba(55, 107, 251, 0) 3px )
+//       repeat;
+//     background-size: 4px 4px;
+//   }
+  
+//   .menu_nav:after {
+//     content: attr(data-name);
+//     position: absolute;
+//     top: 2px;
+//     left: 2px;
+//     z-index: -2;
+//     text-shadow:
+//       1px 1px rgb(0, 0, 0),
+//       2px 2px  rgb(0, 0, 0),
+//       3px 3px  rgb(0, 0, 0),
+//       4px 4px  rgb(0, 0, 0);
+//     color:  rgb(0, 0, 0);
+//     transition: all 1s;
+//   }
+  
+//   .menu_nav:hover {
+//     color: rgb(0, 0, 0);
+//   }
+  
+//   .menu_nav:hover:before {
+//     animation: 1s move_lines infinite linear;
+//   }
+  
+//   .menu_nav:hover:after {
+//     color: rgb(69, 146, 247);
+//     text-shadow:
+//       1px 1px rgb(69, 146, 247),
+//       2px 2px rgb(69, 146, 247),
+//       3px 3px rgb(69, 146, 247),
+//       4px 4px rgb(69, 146, 247);
+//   }
+  
+//   @keyframes move_lines {
+//     100% {
+//       background-position: 40px 40px;
+//     }
+//   }

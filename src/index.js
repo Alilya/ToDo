@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import './index.sass';
 import reportWebVitals from './reportWebVitals';
 import ToDo from './App';
 

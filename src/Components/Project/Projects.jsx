@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
-import style from './Projects.module.css'
+import style from './Projects.module.sass'
 
 let Projects = (props) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -16,7 +16,7 @@ let Projects = (props) => {
 
   return (
     <div >
-      <button onClick={openModal}>Открыть модальное окно</button>
+      <button onClick={openModal} className={style.buttonOpenWindow}>Открыть модальное окно</button>
       <Modal isOpen={modalIsOpen} onRequestClose={closeModal} className={style.modalWindow}>
         <ModalContent closeModal={closeModal} text={text} />
       </Modal>
