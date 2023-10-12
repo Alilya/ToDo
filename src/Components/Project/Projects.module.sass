@@ -3,14 +3,6 @@
     padding: auto
     box-sizing: border-box
 
-.createProject input
-    display: flex
-    align-items: baseline
-    justify-content: center
-    margin: 10px
-    font-size: clamp(10px,17px,25px)
-
-
 .modalWindow
     width: clamp(300px,30%,50%)
   
@@ -21,4 +13,17 @@
     padding: 5%
 
 @mixin button
-    padding:5%
+    padding: 5px
+    margin: 5%
+    background-color: steelblue
+    border: solid 1px steelblue
+    border-radius: 5px
+    color: rgb(255, 255, 255)
+
+
+.buttonOpenWindow
+    @include button
+
+.buttonOpenWindow:hover
+  opacity: 80%
+    

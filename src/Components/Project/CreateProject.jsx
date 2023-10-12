@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 
-const CreateProject = () => {
+const CreateProject = (props) => {
+
   return (
     <div>
       <p>Hi i am new block</p>
