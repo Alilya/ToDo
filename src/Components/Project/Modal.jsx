@@ -3,9 +3,9 @@ import style from "./Modal.module.sass";
 import useLocalStorageState from "use-local-storage-state";
 
 const ModalContent = (props) => {
-  const [name, setName] = useLocalStorageState("newProject", {
-    defaultValue: '',
-  });
+  // const [name, setName] = useLocalStorageState("newProject", {
+  //   defaultValue: '',
+  // });
 
   const [description, setDescription] = useLocalStorageState("description", {
     defaultValue: '',
@@ -27,13 +27,14 @@ const ModalContent = (props) => {
   });
 
   let addNewProject = (e) => {
-    console.log(name);
+    console.log('name');
   };
+
 
   return (
     <div>
       <form action="" className={style.createProject}>
-        <input type="text" placeholder="Заголовок" value={name} onChange={(e) => setName(e.target.value)}/>
+        <input type="text" placeholder="Заголовок" value={props.name} onChange={(e) => props.setName(e.target.value)}/>
         <input type="text" placeholder="Описание"  value={description} onChange={(e) => setDescription(e.target.value)}/>
         Дата создания
         <input type="date" />
