@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
-import style from './Projects.module.sass'
-import CreateProject from "./CreateProject";
+import style from "./Projects.module.sass";
+import ProjectList from "./ProjectList";
 import ModalContent from "./Modal";
 import useLocalStorageState from "use-local-storage-state";
 
@@ -16,50 +16,32 @@ let Projects = (props) => {
     setModalIsOpen(false);
   };
 
-  const [name, setName] = useLocalStorageState("newProject", {
-    defaultValue: '',
-  });
-
-  // const [description, setDescription] = useLocalStorageState("description", {
-  //   defaultValue: '',
-  // });
-
-  // const [timeInWork, setTimeInWork] = useLocalStorageState("timeInWork", {
-  //   defaultValue: Date(0,0),
-  // });
+  const [projects, setProject] = useState([
+    { id: 1, projectName: "hi",description:"description", timeInWork:'12:00',
+    priority:'priority',status:'ok',comment:'comment'},
+    { id: 2, projectName: "hi2",description:"description", timeInWork:'12:00',
+    priority:'priority',status:'ok',comment:'comment' },
+  ]);
   
-  // const [priority, setPriority] = useLocalStorageState("priority", {
-  //   defaultValue: '',
-  // });
-  // const [status, setStatus] = useLocalStorageState("status", {
-  //   defaultValue: '',
-  // });
-  
-  // const [comment, setComment] = useLocalStorageState("comment", {
-  //   defaultValue: '',
-  // });
-
-  // let addNewProject = (e) => {
-  //   console.log(name);
-  // };
-
-
-
-
-
-
   return (
-    <div >
-      <CreateProject/>
-      <button onClick={openModal} className={style.buttonOpenWindow} >Создать новый проект</button>
-      <Modal isOpen={modalIsOpen} onRequestClose={closeModal} className={style.modalWindow}>
-        <ModalContent closeModal={closeModal} name={name} setName={setName}/>
+    <div>
+      <button onClick={openModal} className={style.buttonOpenWindow}>
+        {"Создать новый проект"}
+      </button>
+       <ProjectList projects={projects} /> 
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        className={style.modalWindow}
+      >
+        <ModalContent
+          closeModal={closeModal}
+          projects={projects}
+          setProject={setProject}
+        /> 
       </Modal>
-      <CreateProject name={name}/>
     </div>
   );
 };
-
-
 
 export default Projects;

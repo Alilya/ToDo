@@ -1,16 +1,17 @@
 *
     margin: auto
-    padding: auto
+    padding: 0
     box-sizing: border-box
 
 .modalWindow
-    width: clamp(300px,30%,50%)
-  
+    width: clamp(350px,35%,45%)
     border: dashed 1px black
     display: flex
-    justify-self: center
+    justify-content: center
+    align-content: center
     margin-top: 10%
     padding: 5%
+    background-color: rgba(255, 255, 255, 0.889)
 
 @mixin button
     padding: 5px
@@ -19,7 +20,6 @@
     border: solid 1px steelblue
     border-radius: 5px
     color: rgb(255, 255, 255)
-
 
 .buttonOpenWindow
     @include button

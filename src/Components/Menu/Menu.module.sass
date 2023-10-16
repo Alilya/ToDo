@@ -1,7 +1,6 @@
 .menu
-    padding: 1%
     display: flex
-    justify-content: start
+    justify-content: center
     align-content: center
     
 .body
@@ -9,6 +8,8 @@
    
     
 .menu_nav 
+    padding: 1%
+    grid-template-columns: 1fr 1fr
     display: inline-block
     text-decoration: none
     color: steelblue
@@ -30,11 +31,15 @@
     width: 0%
     border-bottom-width: 3px
 
-// .task
-//     background-color: rgb(42, 95, 230)
-//     width: 500px
+.task
+    display: grid
+    justify-content: center
+    grid-area: 'task'
+    width: 500px
 
 
-// .project
-//     background-color: rgb(0, 0, 0)
-//     width: 500px
+.project
+    display: grid
+    justify-content: center
+    grid-area: 'project'
+    width: 500px
