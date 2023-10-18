@@ -1,84 +1,96 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import style from "./Modal.module.sass";
 import useLocalStorageState from "use-local-storage-state";
 import ProjectList from "./ProjectList";
 
-const ModalContent = ({closeModal,setProject, projects}) => {
-  let addNewProject = (e) => {
-    e.preventDefault();
-    
-    const newProject = {
-      id: Date.now(),
-      projectName: projects.projectName,
-      description: projects.description,
-      timeInWork: projects.timeInWork,
-      priority: projects.priority,
-      status: projects.statusProject,
-      comment: projects.comment,
-    };
-    setProject([...projects,newProject]);
-  };
-
+const ModalContent = ({
+  closeModal,
+  setProject,
+  project,
+  addNewProject,
+  onChange,
+}) => {    
   return (
-    <div>
+    <div>  
       <div className={style.createProject_div}>
         <form action="" className={style.createProject}>
           <input
             type="text"
             placeholder="Заголовок"
-            value={projects.projectName}
-            onChange={(e) => setProject({...projects, projectName: e.target.value})}
+            value={project.projectName}
+            onChange={(e) =>
+              setProject({ ...project, projectName: e.target.value })
+            }
           />
           <input
             type="text"
             placeholder="Описание"
-            value={projects.description}
-           onChange={(e) => setProject({...projects, projectName: e.target.value})}
+            value={project.description}
+            onChange={(e) =>
+              setProject({ ...project, description: e.target.value })
+            }
           />
           Дата создания
-          <input type="date" />
+          <input type="date"  
+          value={project.timeCreate}
+            onChange={(e) =>
+              setProject({ ...project, timeCreate: e.target.value })
+            }/>
           Время в работе
           <input
             type="time"
-            value={projects.timeInWork}
-           onChange={(e) => setProject({...projects, projectName: e.target.value})}
+            value={project.timeInWork}
+            onChange={(e) =>
+              setProject({ ...project, timeInWork: e.target.value })
+            }
           />
           Дата окончания
-          <input type="date" />
+          <input type="date" 
+           value={project.timeFinish}
+           onChange={(e) =>
+             setProject({ ...project, timeFinish: e.target.value })
+           }/>
           <input
             type="text"
             placeholder="Приоритет"
-            value={projects.priority}
-           onChange={(e) => setProject({...projects, projectName: e.target.value})}
+            value={project.priority}
+            onChange={(e) =>
+              setProject({ ...project, priority: e.target.value })
+            }
           />
           Файл
           <input type="file" />
           <input
             type="text"
             placeholder="Текущий статус"
-            value={projects.statusProject}
-           onChange={(e) => setProject({...projects, projectName: e.target.value})}
+            value={project.status}
+            onChange={(e) =>
+              setProject({ ...project, status: e.target.value })
+            }
           />
           <input
             type="comment"
             placeholder="Комментарий"
-            value={projects.comment}
-           onChange={(e) => setProject({...projects, projectName: e.target.value})}
+            value={project.comment}
+            onChange={(e) =>
+              setProject({ ...project, comment: e.target.value })
+            }
           />
         </form>
         <button
           type="submit"
           onClick={(e) => {
-            addNewProject(e);
+           addNewProject(project);
             closeModal();
+            //onChange(e);
           }}
         >
           {" "}
           Закрыть
         </button>
-      
       </div>
     </div>
   );
 };
+
 export default ModalContent;

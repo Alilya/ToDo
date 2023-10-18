@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Modal from "react-modal";
 import style from "./Projects.module.sass";
 import ProjectList from "./ProjectList";
 import ModalContent from "./Modal";
 import useLocalStorageState from "use-local-storage-state";
+import CreateProject from "./CreateProject";
 
 let Projects = (props) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
-
   let openModal = () => {
     setModalIsOpen(true);
   };
@@ -16,19 +16,22 @@ let Projects = (props) => {
     setModalIsOpen(false);
   };
 
-  const [projects, setProject] = useState([
-    { id: 1, projectName: "hi",description:"description", timeInWork:'12:00',
-    priority:'priority',status:'ok',comment:'comment'},
-    { id: 2, projectName: "hi2",description:"description", timeInWork:'12:00',
-    priority:'priority',status:'ok',comment:'comment' },
-  ]);
-  
+  const [projects, setProjects] = useLocalStorageState("projects", []);
+  const [project, setProject] = useState("");
+
+  let addNewProject = (project) => {
+    setProjects([...projects, project]);
+    setProject(project);
+
+  };
+ 
   return (
     <div>
       <button onClick={openModal} className={style.buttonOpenWindow}>
         {"Создать новый проект"}
       </button>
-       <ProjectList projects={projects} /> 
+      <ProjectList projects={projects} />
+
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
@@ -36,9 +39,10 @@ let Projects = (props) => {
       >
         <ModalContent
           closeModal={closeModal}
-          projects={projects}
+          project={project}
           setProject={setProject}
-        /> 
+          addNewProject={addNewProject}
+        />
       </Modal>
     </div>
   );
