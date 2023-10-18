@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Modal from "react-modal";
-import style from "./Projects.module.sass";
+import style from "./Projects.sass";
 import ProjectList from "./ProjectList";
 import ModalContent from "./Modal";
 import useLocalStorageState from "use-local-storage-state";
@@ -21,13 +21,13 @@ let Projects = (props) => {
 
   let addNewProject = (project) => {
     setProjects([...projects, project]);
-    setProject(project);
+    setProject('');
 
   };
  
   return (
     <div>
-      <button onClick={openModal} className={style.buttonOpenWindow}>
+      <button onClick={openModal} className="buttonOpenWindow">
         {"Создать новый проект"}
       </button>
       <ProjectList projects={projects} />
@@ -35,7 +35,7 @@ let Projects = (props) => {
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
-        className={style.modalWindow}
+        className="modalWindow"
       >
         <ModalContent
           closeModal={closeModal}

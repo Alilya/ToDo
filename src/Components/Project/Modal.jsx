@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import style from "./Modal.module.sass";
+import "./Projects.sass"
 import useLocalStorageState from "use-local-storage-state";
 import ProjectList from "./ProjectList";
 
@@ -12,6 +13,10 @@ const ModalContent = ({
 }) => {    
   return (
     <div>  
+       <button className={style.buttonClose} 
+        onClick={(e) => {
+            closeModal();
+          }}>X</button>
       <div className={style.createProject_div}>
         <form action="" className={style.createProject}>
           <input
@@ -77,7 +82,7 @@ const ModalContent = ({
             }
           />
         </form>
-        <button
+        <button className={style.buttonSend}
           type="submit"
           onClick={(e) => {
            addNewProject(project);
@@ -86,7 +91,7 @@ const ModalContent = ({
           }}
         >
           {" "}
-          Закрыть
+          Отправить
         </button>
       </div>
     </div>

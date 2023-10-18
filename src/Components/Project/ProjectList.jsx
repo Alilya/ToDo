@@ -4,13 +4,8 @@ import CreateProject from "./CreateProject";
 const ProjectList = (props) => {
   return (
     <div>
-      {/* {props.projects.map((project, index) => (
-        <CreateProject index={index + 1} 
-        project={project} key={project.id} />
-      ))} */}
-
-      {props.projects.map((project) => (
-        <CreateProject project={project} key={project.id} />
+      {props.projects.map((project, index) => (
+        <CreateProject project={project} key={index + 1} index={index + 1} />
       ))}
     </div>
   );
