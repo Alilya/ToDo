@@ -82,7 +82,7 @@ const ModalContent = ({
         <button className={style.buttonSend}
           type="submit"
           onClick={(e) => {
-          addNewProject(project);
+            addNewProject(project);
             closeModal();
             //onChange(e);
           }}

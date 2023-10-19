@@ -21,16 +21,26 @@ let Projects = (props) => {
 
   let addNewProject = (project) => {
     setProjects([...projects, project]);
-    setProject('');
+    //setProject('');
+  }; 
 
+  let onDelete = index => {
+    const newTodos = projects.filter((_, i) => i !== index);
+    setProjects(newTodos);
   };
- 
+
   return (
     <div>
       <button onClick={openModal} className="buttonOpenWindow">
         {"Создать новый проект"}
       </button>
-      <ProjectList projects={projects} />
+
+      <ProjectList
+        projects={projects}
+        setProject={setProject}
+        addNewProject={addNewProject}
+        onDelete={onDelete}
+      />
 
       <Modal
         isOpen={modalIsOpen}

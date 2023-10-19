@@ -1,11 +1,17 @@
 import React from "react";
-import style from "./Modal.module.sass";
+import style from "./ViewModal.module.sass";
 import "./Projects.sass"
 
 const ViewMoreModal = ({
   closeModal,
   project,
+  setProject,
+  addNewProject,
+  onDelete,
+  index,
+
 }) => {    
+  // setProject('');
   return (
     <div>  
        <button className={style.buttonClose} 
@@ -18,7 +24,9 @@ const ViewMoreModal = ({
             type="text"
             placeholder="Заголовок"
             value={project.projectName}
-            
+            onChange={(e) =>
+              setProject({ ...project, projectName: e.target.value })
+            }
           />
           <input
             type="text"
@@ -61,16 +69,25 @@ const ViewMoreModal = ({
             
           />
         </form>
-        {/* <button className={style.buttonSend}
+
+        <button
+        onClick={onDelete.bind(undefined, index - 1)}
+        className={style.buttonDelete}
+      >
+        Удалить проект
+      </button>
+
+          <button className={style.buttonSend}
           type="submit"
           onClick={(e) => {
+            addNewProject(project);
             closeModal();
             //onChange(e);
           }}
         >
           {" "}
-          Отправить
-        </button> */}
+          Изменить
+        </button> 
       </div>
     </div>
   );

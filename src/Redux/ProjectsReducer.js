@@ -53,7 +53,7 @@ const projectsReducer = (state = initialState, action) => {
   }
 };
 
-export const addMessageActionCreator = (projectName,description,timeCreate,timeInWork,timeFinish,priority,status,comment) => ({
+export const addProjectActionCreator = (projectName,description,timeCreate,timeInWork,timeFinish,priority,status,comment) => ({
   type: ADD_PROJECT,
   projectName,description,timeCreate,timeInWork,timeFinish,priority,status,comment
 });
